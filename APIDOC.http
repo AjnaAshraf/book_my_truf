@@ -1,0 +1,60 @@
+#api for creating an admin user 
+
+###
+POST http://127.0.0.1:8000/turfs/admin-register/
+Content-Type: application/json
+
+{
+    "username":"admin123",
+    "email":"admin123@gmail.com",
+    "password":"admin@123"
+}
+
+#api call for listing all turf details
+
+###
+GET http://127.0.0.1:8000/turfs/
+Accept: application/json
+Authorization: Basic admin123:admin@123
+
+#api call for creating turf details 
+###
+POST http://127.0.0.1:8000/turfs/
+Content-Type: application/json
+Authorization: Basic admin123:admin@123
+
+{
+        "name": "royal blasters ",
+        "location": "Edappally, Kochi",
+        "phone": "8084593569",
+        "fee": 184
+    }
+
+
+#api call for fetching a record
+
+###
+GET http://127.0.0.1:8000/turfs/3/
+Accept: application/json
+Authorization: Basic admin123:admin@123
+
+#api call for updating a record 
+###
+PUT  http://127.0.0.1:8000/turfs/7/
+Content-Type: application/json
+Authorization: Basic admin123:admin@123
+
+  {
+    "id": "7",
+    "name": "royal blasters",
+    "location": "Edappally, Kochi",
+    "phone": "8084593569",
+    "fee": 1560
+  }
+
+# api call for deleting a record 
+
+###
+DELETE  http://127.0.0.1:8000/turfs/3/
+Accept: application/json
+Authorization: Basic admin123:admin@123
