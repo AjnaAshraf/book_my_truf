@@ -20,4 +20,4 @@ class Bookings(models.Model):
 
     match_duration = models.DurationField()
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    # created_at = models.DateTimeField(auto_now_add=True)

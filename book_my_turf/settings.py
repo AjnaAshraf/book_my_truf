@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'turf',
     'turf_reservations',
+    'turf_reservation_v2',
 
 ]
 

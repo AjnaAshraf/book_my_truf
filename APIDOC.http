@@ -66,3 +66,17 @@ Authorization: Basic admin123:admin@123
 ###
 GET http://127.0.0.1:8000/bookings/
 Accept: application/json
+
+
+#api call for creating a new user
+
+###
+POST http://127.0.0.1:8000/v2/bookings/signup/
+Content-Type: application/json
+
+{
+  "username":"alysha123",
+  "email":"ayshanasrin23@gmail.com",
+  "password":"aayshaa@123"
+}
+

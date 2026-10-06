@@ -15,3 +15,4 @@ class BookingsCreateListView(APIView):
         serializer_instance = BookingsSerializers(qs,many=True)
 
         return Response(data=serializer_instance.data)
+    
