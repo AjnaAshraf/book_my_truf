@@ -89,6 +89,7 @@ Content-Type: application/json
 ###
 GET http://127.0.0.1:8000/v2/bookings/reservations/
 Accept: application/json
+Authorization: Basic alysha123:aayshaa@123
 
 
 # api call for creating Turf Reservations
@@ -96,13 +97,48 @@ Accept: application/json
 ###
 POST http://127.0.0.1:8000/v2/bookings/reservations/
 Content-Type: application/json
+Authorization: Basic alysha123:aayshaa@123
 
 {
-    "team_name": "blaster56 ",
-    "turf": 1,
-    "phone_number": "9876543217",
-    "email": "blaster56@gmail.com",
+    "team_name": "RoyalBlasterzz ",
+    "turf": 4,
+    "phone_number": "9876545674",
+    "email": "RoyalBlasterzz@gmail.com",
     "date": "2026-10-7",
-    "start_time": "11:00:00",
+    "start_time": "1:00:00",
     "match_duration": "02:00:00"
 }
+
+# api call for retrieving an turf reservation
+
+###
+GET http://127.0.0.1:8000/v2/bookings/reservations/4/
+Accept: application/json
+Authorization: Basic alysha123:aayshaa@123
+
+#api call for updating a turf reservation 
+###
+PUT http://127.0.0.1:8000/v2/bookings/reservations/4/
+Content-Type: application/json
+Authorization: Basic alysha123:aayshaa@123
+
+{
+  
+  "turf": "KickOff Sports ",
+  "team_name": "Blue United",
+  "phone_number": "9876543123",
+  "email": "blueunited@gmail.com",
+  "date": "2026-10-10",
+  "start_time": "10:00:00",
+  "end_time": "11:30:00",
+  "match_duration": "01:30:00"
+
+}
+
+#api call for deleting a reservation 
+
+###
+DELETE http://127.0.0.1:8000/v2/bookings/reservations/7/
+Accept: application/json
+Authorization: Basic alysha123:aayshaa@123
+

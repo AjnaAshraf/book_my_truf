@@ -5,7 +5,7 @@ from datetime import datetime
 
 class BookingSerializer(serializers.ModelSerializer):
 
-    # turf = serializers.StringRelatedField()
+    turf = serializers.StringRelatedField()
 
     class Meta:
 
