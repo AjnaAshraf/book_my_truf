@@ -5,7 +5,12 @@ from rest_framework.response import Response
 
 from django.contrib.auth.models import User
 
-from turf_reservation_v2.serializers import SignupSerilaizer
+from turf_reservation_v2.serializers import SignupSerilaizer,BookingSerializer
+from turf_reservation_v2.models import Booking
+
+from datetime import datetime,time,timedelta
+
+# from turf.models import Turf
 
 class SignupView(APIView):
 
@@ -28,6 +33,70 @@ class SignupView(APIView):
         else:
 
             return Response(data=serializer_instance.errors)
+
+
+class BookingCreateListView(APIView):
+
+    def get(self,request):
+
+        qs = Booking.objects.all()
+
+        serializer_instance = BookingSerializer(qs,many=True)
+
+        return Response(data=serializer_instance.data)
+
+    def post(self,request):
+
+        form_data = request.data
+
+        serialzer_instance = BookingSerializer(data=form_data)
+
+        if serialzer_instance.is_valid():
+
+            cleaned_data = serialzer_instance.validated_data
+
+            turf = cleaned_data.get("turf")
+
+            date = cleaned_data.get("date")
+
+            start_time = cleaned_data.get("start_time")
+
+            match_duration = cleaned_data.get("match_duration")
+
+            start_datetime = datetime.combine(date,start_time)
+
+            end_datetime = start_datetime + match_duration
+
+            end_time = end_datetime.time()
+
+            existing_bookings = Booking.objects.filter(turf=turf,date=date,start_time__lt=end_time,end_time__gt=start_time).exists()
+
+            if existing_bookings:
+
+                return Response(data={"error":" Turf is already booked during the selected time "})
+
+            cleaned_data["end_time"] = end_time
+
+            new_booking = Booking.objects.create(**cleaned_data)
+
+            serialzer_instance = BookingSerializer(new_booking)
+
+            return Response(data=serialzer_instance.data)
+
+        else:
+
+            return Response(data=serialzer_instance.errors)
+
+
+
+       
+
+
+
+
+
+
+    
 
 
     

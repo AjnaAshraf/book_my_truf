@@ -68,6 +68,9 @@ GET http://127.0.0.1:8000/bookings/
 Accept: application/json
 
 
+
+#============== v2 endpoints =========
+
 #api call for creating a new user
 
 ###
@@ -80,3 +83,26 @@ Content-Type: application/json
   "password":"aayshaa@123"
 }
 
+
+# api call for listing all turf reservations
+
+###
+GET http://127.0.0.1:8000/v2/bookings/reservations/
+Accept: application/json
+
+
+# api call for creating Turf Reservations
+
+###
+POST http://127.0.0.1:8000/v2/bookings/reservations/
+Content-Type: application/json
+
+{
+    "team_name": "blaster56 ",
+    "turf": 1,
+    "phone_number": "9876543217",
+    "email": "blaster56@gmail.com",
+    "date": "2026-10-7",
+    "start_time": "11:00:00",
+    "match_duration": "02:00:00"
+}
