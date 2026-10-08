@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from turf_reservation_v2.models import Booking
 from django.contrib.auth.models import User
-from datetime import datetime
+from datetime import datetime,timedelta
 
 class BookingSerializer(serializers.ModelSerializer):
 
@@ -24,6 +24,12 @@ class BookingSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 "Invalid booking date. Please enter a valid future date."
             )
+
+        match_duration = validated_data.get("match_duration")
+
+        if match_duration<timedelta(hours=1):
+
+                raise serializers.ValidationError("........The minimum match duration must be 1 hour........")
 
         return validated_data
 

@@ -100,13 +100,13 @@ Content-Type: application/json
 Authorization: Basic alysha123:aayshaa@123
 
 {
-    "team_name": "RoyalBlasterzz ",
+    "team_name": "manjadi arts club ",
     "turf": 4,
     "phone_number": "9876545674",
-    "email": "RoyalBlasterzz@gmail.com",
-    "date": "2026-10-7",
-    "start_time": "1:00:00",
-    "match_duration": "02:00:00"
+    "email": "manjadiartsclub@gmail.com",
+    "date": "2026-10-10",
+    "start_time": "7:00:00",
+    "match_duration": "0:50:00"
 }
 
 # api call for retrieving an turf reservation
@@ -136,7 +136,6 @@ Authorization: Basic alysha123:aayshaa@123
 }
 
 #api call for deleting a reservation 
-
 ###
 DELETE http://127.0.0.1:8000/v2/bookings/reservations/7/
 Accept: application/json
