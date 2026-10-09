@@ -33,7 +33,6 @@ class BookingSerializer(serializers.ModelSerializer):
 
         return validated_data
 
-
 class SignupSerilaizer(serializers.ModelSerializer):
 
     class Meta:
